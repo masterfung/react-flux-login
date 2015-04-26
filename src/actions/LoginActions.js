@@ -13,5 +13,12 @@ export default {
 			actionType: LOGIN_USER,
 			jwt: jwt
 		})
+	},
+	logoutUser: () => {
+		RouterContainer.get().transaction('/login');
+		localStorage.removeItem('jwt');
+		AppDispatcher.dispatch({
+			actionType: LOGOUT_USER
+		});
 	}
 }
