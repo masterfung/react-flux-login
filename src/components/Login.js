@@ -24,6 +24,8 @@ export default class Login extends React.Component {
 
 	render() {
 		return (
+		<div className="login jumbotron center-block">
+			<h1>Login</h1>
 			<form role="form">
 				<div className="form-group">
 					<input type="text" valueLink={this.linkState('user')} placeholder="Username"/>
@@ -32,6 +34,7 @@ export default class Login extends React.Component {
 					<button type="submit" onClick={this.login.bind(this)}>Submit</button>
 				</div>
 			</form>
+		</div>
 		)
 	}
 }
