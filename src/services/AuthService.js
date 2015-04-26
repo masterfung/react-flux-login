@@ -4,20 +4,42 @@
 import request from 'reqwest';
 import when from 'when';
 import LoginActions from '../actions/LoginActions';
+import {LOGIN_URL, SIGNUP_URL} from '../constants/LoginConstants';
 
 class AuthService {
+
 	login(username, password) {
-		return when(request({
-			url: 'http://localhost:3001/sessions/create',
-			method: "POST",
+		return this.handleAuth(when(request({
+			url: LOGIN_URL,
+			method: 'POST',
 			crossOrigin: true,
 			type: 'json',
 			data: {
 				username, password
 			}
-		}))
-		.then((response) => {
-				let jwt = response.id_token;
+		})));
+	}
+
+	logout() {
+		LoginActions.logoutUser();
+	}
+
+	signup(username, password, extra) {
+		return this.handleAuth(when(request({
+			url: SIGNUP_URL,
+			method: 'POST',
+			crossOrigin: true,
+			type: 'json',
+			data: {
+				username, password, extra
+			}
+		})));
+	}
+
+	handleAuth(loginPromise) {
+		return loginPromise
+			.then(function(response) {
+				var jwt = response.id_token;
 				LoginActions.loginUser(jwt);
 				return true;
 			});

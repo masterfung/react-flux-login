@@ -8,20 +8,25 @@ import jwt_decode from 'jwt_decode';
 
 class LoginStore extends BaseStore {
 	constructor(){
-		this.dispatchToken = AppDispatcher.register(this._registerToActions.bind(this));
+		super(this._registerToActions.bind(this));
 		this._user = null;
 		this._jwt = null;
 	}
-	_registerToActions(action){
+
+	_registerToActions(action) {
 		switch(action.actionType) {
-			case USER_LOGGED_IN:
+			case LOGIN_USER:
 				this._jwt = action.jwt;
 				this._user = jwt_decode(this._jwt);
 				this.emitChange();
 				break;
+			case LOGOUT_USER:
+				this._user = null;
+				this.emitChange();
+				break;
 			default:
 				break;
-		};
+		}
 	}
 
 	get user() {
