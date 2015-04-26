@@ -1,7 +1,9 @@
 /**
  * Created by htm on 4/26/15.
  */
-import request from 'reqwest'
+import request from 'reqwest';
+import when from 'when';
+import LoginActions from '../actions/LoginActions';
 
 class AuthService {
 	login(username, password) {
