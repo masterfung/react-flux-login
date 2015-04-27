@@ -12,10 +12,10 @@ export default {
 		AppDispatcher.dispatch({
 			actionType: LOGIN_USER,
 			jwt: jwt
-		})
+		});
 	},
 	logoutUser: () => {
-		RouterContainer.get().transaction('/login');
+		RouterContainer.get().transitionTo('/login');
 		localStorage.removeItem('jwt');
 		AppDispatcher.dispatch({
 			actionType: LOGOUT_USER

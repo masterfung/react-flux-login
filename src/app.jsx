@@ -2,12 +2,13 @@
 import React from 'react';
 import Router from 'react-router';
 import Login from './components/Login';
+import Signup from './components/Signup';
 import Home from './components/Home';
 import AuthenticatedApp from './components/AuthenticatedApp';
 import RouterContainer from './services/RouterContainer';
 import LoginActions from './actions/LoginActions';
 
-let {Route} = Router;
+let { Route } = Router;
 
 let routes = (
     <Route handler={AuthenticatedApp}>

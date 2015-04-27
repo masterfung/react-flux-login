@@ -1,17 +1,17 @@
-/**
- * Created by htm on 4/26/15.
- */
-import React from 'react/addons';
+import React from 'react';
 import LoginStore from '../stores/LoginStore';
 
 export default (ComposedComponent) => {
 	return class AuthenticatedComponent extends React.Component {
+
 		static willTransitionTo(transition) {
 			if (!LoginStore.isLoggedIn()) {
-				transition.redirect('/');
+				transition.redirect('/login', {}, {'nextPath' : transition.path});
 			}
 		}
+
 		constructor() {
+			super();
 			this.state = this._getLoginState();
 		}
 
@@ -24,7 +24,8 @@ export default (ComposedComponent) => {
 		}
 
 		componentDidMount() {
-			LoginStore.addChangeListener(this._onChange.bind(this));
+			this.changeListener = this._onChange.bind(this);
+			LoginStore.addChangeListener(this.changeListener);
 		}
 
 		_onChange() {
@@ -32,19 +33,17 @@ export default (ComposedComponent) => {
 		}
 
 		componentWillUnmount() {
-			LoginStore.removeChangeLister(this._onChange.bind(this));
+			LoginStore.removeChangeListener(this.changeListener);
 		}
 
-		return() {
-				return (
-					<ComposedComponent
-						{...this.props}
-						user={this.state.user}
-					    jwt={this.state.jwt}
-					    userLoggedIn={this.state.userLoggedIn}
-						/>
-				);
+		render() {
+			return (
+				<ComposedComponent
+					{...this.props}
+					user={this.state.user}
+					jwt={this.state.jwt}
+					userLoggedIn={this.state.userLoggedIn} />
+			);
 		}
-
 	}
-}
+};

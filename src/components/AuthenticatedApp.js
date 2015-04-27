@@ -1,14 +1,13 @@
-/**
- * Created by htm on 4/26/15.
- */
+'use strict';
 
 import React from 'react';
 import LoginStore from '../stores/LoginStore'
 import { Route, RouteHandler, Link } from 'react-router';
-import AuthService from '../services/AuthService';
+import AuthService from '../services/AuthService'
 
 export default class AuthenticatedApp extends React.Component {
 	constructor() {
+		super();
 		this.state = this._getLoginState();
 	}
 
@@ -36,7 +35,7 @@ export default class AuthenticatedApp extends React.Component {
 			<div className="container">
 				<nav className="navbar navbar-default">
 					<div className="navbar-header">
-						<a className="navbar-brand" href="/">React Flux app with JWT authentication</a>
+						<a className="navbar-brand" href="/">React Flux JWT</a>
 					</div>
 					{this.headerItems}
 				</nav>

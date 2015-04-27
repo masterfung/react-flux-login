@@ -1,14 +1,13 @@
-/**
- * Created by htm on 4/26/15.
- */
 import {LOGIN_USER, LOGOUT_USER} from '../constants/LoginConstants';
 import BaseStore from './BaseStore';
-import jwt_decode from 'jwt_decode';
+import jwt_decode from 'jwt-decode';
 
 
 class LoginStore extends BaseStore {
-	constructor(){
-		super(this._registerToActions.bind(this));
+
+	constructor() {
+		super();
+		this._registerToActions = this._registerToActions.bind(this);
 		this._user = null;
 		this._jwt = null;
 	}
@@ -37,9 +36,11 @@ class LoginStore extends BaseStore {
 		return this._jwt;
 	}
 
-	isLoggedIn(){
+	isLoggedIn() {
 		return !!this._user;
 	}
 }
 
 export default new LoginStore();
+
+

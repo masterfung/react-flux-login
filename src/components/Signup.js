@@ -1,14 +1,11 @@
-/**
- * Created by htm on 4/26/15.
- */
-
 import React from 'react/addons';
 import ReactMixin from 'react-mixin';
-import Auth from '../services/AuthService'
+import Auth from '../services/AuthService';
 
 export default class Signup extends React.Component {
 
 	constructor() {
+		super();
 		this.state = {
 			user: '',
 			password: '',

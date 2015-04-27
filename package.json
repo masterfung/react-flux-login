@@ -8,7 +8,8 @@
     "url": "git@github.com:mgonto/react-browserify-spa-seed.git"
   },
   "authors": [
-    "Martin Gontovnikas <martin@gon.to> (http://gon.to/)"
+    "Martin Gontovnikas <martin@gon.to> (http://gon.to/)",
+    "Tsung Hung <thung@me.com>"
   ],
   "browserify": {
     "transform": [
@@ -35,9 +36,11 @@
   "homepage": "https://github.com/mgonto/react-browserify-spa-seed",
   "dependencies": {
     "bootstrap": "^3.3.0",
+    "es6-promise": "^2.1.1",
     "events": "^1.0.2",
     "flux": "^2.0.3",
     "jwt-decode": "^1.1.0",
+    "object-assign": "^2.0.0",
     "react": "^0.13.2",
     "react-router": "^0.13.2",
     "reqwest": "^1.1.5",
