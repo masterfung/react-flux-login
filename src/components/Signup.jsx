@@ -1,6 +1,6 @@
 import React from 'react/addons';
 import ReactMixin from 'react-mixin';
-import { Jumbotron } from 'react-bootstrap';
+import { Jumbotron, Button } from 'react-bootstrap';
 import Auth from '../services/AuthService'
 
 export default class Signup extends React.Component {
@@ -34,7 +34,7 @@ export default class Signup extends React.Component {
           <label htmlFor="password">Password</label>
           <input type="password" valueLink={this.linkState('password')} className="form-control" id="password" ref="password" placeholder="Password" />
         </div>
-        <button type="submit" className="btn btn-default" onClick={this.signup.bind(this)}>Submit</button>
+        <Button type="submit"onClick={this.signup.bind(this)}>Submit</Button>
       </form>
     </Jumbotron>
     );
