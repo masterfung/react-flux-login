@@ -1,14 +1,14 @@
 import Router from 'react-router';
-var {Route} = Router;
-import AuthenticatedApp from './components/AuthenticatedApp'
+let {Route} = Router;
+import AuthenticatedApp from './components/AuthenticatedApp';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Home from './components/Home';
 import React from 'react';
-import RouterContainer from './services/RouterContainer'
-import LoginActions from './actions/LoginActions'
+import RouterContainer from './services/RouterContainer';
+import LoginActions from './actions/LoginActions';
 
-var routes = (
+let routes = (
   <Route handler={AuthenticatedApp}>
     <Route name="login" handler={Login}/>
     <Route name="signup" handler={Signup}/>
@@ -16,7 +16,7 @@ var routes = (
   </Route>
 );
 
-var router = Router.create({routes});
+let router = Router.create({routes});
 RouterContainer.set(router);
 
 let jwt = localStorage.getItem('jwt');
@@ -24,7 +24,7 @@ if (jwt) {
   LoginActions.loginUser(jwt);
 }
 
-router.run(function (Handler) {
+router.run((Handler) => {
   React.render(<Handler />, document.getElementById('content'));
 });
 
