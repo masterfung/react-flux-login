@@ -24,7 +24,7 @@ class LoginStore extends BaseStore {
         break;
       default:
         break;
-    };
+    }
   }
 
   get user() {

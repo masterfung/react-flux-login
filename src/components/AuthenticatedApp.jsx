@@ -35,7 +35,7 @@ export default class AuthenticatedApp extends React.Component {
           {this.headerItems}
         </Nav>
         <RouteHandler/>
-        </Navbar>
+      </Navbar>
     );
   }
 
@@ -48,26 +48,26 @@ export default class AuthenticatedApp extends React.Component {
     if (!this.state.userLoggedIn) {
       return (
       <div id="navbar" class="navbar-collapse collapse">
-      <ul className="nav navbar-nav navbar-right">
-        <li>
-          <Link to="login">Login</Link>
-        </li>
-        <li>
-          <Link to="signup">Signup</Link>
-        </li>
-      </ul>
+        <ul className="nav navbar-nav navbar-right">
+          <li>
+            <Link to="login">Login</Link>
+          </li>
+          <li>
+            <Link to="signup">Signup</Link>
+          </li>
+        </ul>
       </div>       )
     } else {
       return (
-            <div id="navbar" class="navbar-collapse collapse">
-      <ul className="nav navbar-nav navbar-right">
-        <li>
-          <Link to="home">Home</Link>
-        </li>
-        <li>
-          <a href="" onClick={this.logout}>Logout</a>
-        </li>
-      </ul>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul className="nav navbar-nav navbar-right">
+          <li>
+            <Link to="home">Home</Link>
+          </li>
+          <li>
+            <a href="" onClick={this.logout}>Logout</a>
+          </li>
+        </ul>
       </div>
             )
     }
