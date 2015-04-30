@@ -25,6 +25,8 @@ if (jwt) {
 }
 
 router.run((Handler) => {
-  React.render(<Handler />, document.getElementById('content'));
+  React.render(
+      <Handler />,
+      document.getElementById('content'));
 });
 

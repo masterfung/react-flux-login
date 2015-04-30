@@ -1,11 +1,12 @@
 import React from 'react/addons';
 import ReactMixin from 'react-mixin';
-import { Jumbotron, Button } from 'react-bootstrap';
+import { Jumbotron, Button, Input } from 'react-bootstrap';
 import Auth from '../services/AuthService'
 
 export default class Signup extends React.Component {
 
-  constructor() {
+  constructor(props) {
+    this.signup = this.signup.bind(this);
     this.state = {
       user: '',
       password: ''
@@ -16,7 +17,7 @@ export default class Signup extends React.Component {
     e.preventDefault();
     Auth.signup(this.state.user, this.state.password, this.state.extra)
       .catch(function(err) {
-        alert("There's an error logging in");
+        alert("There's an error logging in. Check the console for errors.");
         console.log("Error logging in", err);
       });
   }
@@ -28,13 +29,13 @@ export default class Signup extends React.Component {
         <form role="form">
         <div className="form-group">
           <label htmlFor="username">Username</label>
-          <input type="text" valueLink={this.linkState('user')} className="form-control" id="username" placeholder="Username" />
+          <Input type="text" valueLink={this.linkState('user')} className="form-control" id="username" placeholder="Username" />
         </div>
         <div className="form-group">
           <label htmlFor="password">Password</label>
-          <input type="password" valueLink={this.linkState('password')} className="form-control" id="password" ref="password" placeholder="Password" />
+          <Input type="password" valueLink={this.linkState('password')} className="form-control" id="password" ref="password" placeholder="Password" />
         </div>
-        <Button type="submit"onClick={this.signup.bind(this)}>Submit</Button>
+        <Button type="submit" onClick={this.signup}>Submit</Button>
       </form>
     </Jumbotron>
     );
