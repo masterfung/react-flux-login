@@ -1,5 +1,5 @@
 import Router from 'react-router';
-let {Route} = Router;
+let { Route } = Router;
 import AuthenticatedApp from './components/AuthenticatedApp';
 import Login from './components/Login';
 import Signup from './components/Signup';

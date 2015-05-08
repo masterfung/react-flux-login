@@ -14,7 +14,7 @@ export default (ComposedComponent) => {
       this.state = this._getLoginState();
     }
 
-    _getLoginState() {
+      _getLoginState() {
       return {
         userLoggedIn: LoginStore.isLoggedIn(),
         user: LoginStore.user,

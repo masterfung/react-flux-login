@@ -1,6 +1,6 @@
 import request from 'reqwest';
 import when from 'when';
-import {LOGIN_URL, SIGNUP_URL} from '../constants/LoginConstants';
+import { LOGIN_URL, SIGNUP_URL } from '../constants/LoginConstants';
 import LoginActions from '../actions/LoginActions';
 
 class AuthService {
