@@ -47,7 +47,7 @@ export default class AuthenticatedApp extends React.Component {
   get headerItems() {
     if (!this.state.userLoggedIn) {
       return (
-      <div id="navbar" class="navbar-collapse collapse">
+      <div id="navbar" className="navbar-collapse collapse">
         <ul className="nav navbar-nav navbar-right">
           <li>
             <Link to="login">Login</Link>
@@ -59,7 +59,7 @@ export default class AuthenticatedApp extends React.Component {
       </div>       )
     } else {
       return (
-      <div id="navbar" class="navbar-collapse collapse">
+      <div id="navbar" className="navbar-collapse collapse">
         <ul className="nav navbar-nav navbar-right">
           <li>
             <Link to="home">Home</Link>
